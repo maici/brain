@@ -5,10 +5,7 @@ import { Router, Route, IndexRedirect, IndexRoute, browserHistory } from 'react-
 const AppRouter = () => {
   return (
     <Router history={browserHistory}>
-      <Route path='/'>
-        <IndexRedirect to="app" />
-        <Route path="app" component={App}>
-        </Route>
+      <Route path='/' component={App}>
       </Route>
     </Router>
   )
