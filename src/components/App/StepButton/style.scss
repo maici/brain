@@ -1,0 +1,45 @@
+$hexagon-default: #333;
+$hexagon-valid: #33cc33;
+.container {
+  margin: 20px;
+}
+
+.hexagon {
+  position: relative;
+  width: 75px;
+  height: 43.30px;
+  background-color: $hexagon-default;
+  margin: 21.65px 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 37.5px solid transparent;
+    border-right: 37.5px solid transparent;
+  }
+
+  &::before {
+    bottom: 100%;
+    border-bottom: 21.65px solid $hexagon-default;
+  }
+
+  &::after {
+    top: 100%;
+    width: 0;
+    border-top: 21.65px solid $hexagon-default;
+  }
+
+  &.active {
+    background-color: $hexagon-valid;
+
+    &::after {
+      border-top-color: $hexagon-valid;
+    }
+
+    &::before {
+      border-bottom-color: $hexagon-valid;
+    }
+  }
+}

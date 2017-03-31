@@ -1,0 +1,17 @@
+$hexagon-default: #333;
+
+.container {
+  align-items: center;
+  background-color: $hexagon-default;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  margin: 5px;
+  width: 10vh;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

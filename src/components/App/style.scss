@@ -1,0 +1,59 @@
+$white: white;
+$default: #777;
+$darker: #555;
+$darkeeeer: #222;
+$last: #000;
+$red: darken(#990039, 10%);
+
+.container {
+  align-items: center;
+  transition: .2s;
+  background-image: -webkit-radial-gradient(center, circle, $white, $default);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Courier New';
+  height: 100vh;
+  width: 100vw;
+
+  &.step0 {
+    background-image: -webkit-radial-gradient(center, circle, $white, $default);
+  }
+  &.step1 {
+    background-image: -webkit-radial-gradient(center, circle, $white, $darker);
+  }
+  &.step2 {
+    background-image: -webkit-radial-gradient(center, circle, $white, $darkeeeer);
+  }
+  &.step3 {
+    background-image: -webkit-radial-gradient(center, circle, $white, $last);
+  }
+}
+
+
+.header {
+  align-items: center;
+  border-bottom: 1px solid $white;
+  display: flex;
+  height: 15vh;
+  justify-content: center;
+  width: 70%;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  font-size: 3em;
+  height: 70vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer {
+  align-items: center;
+  border-top: 1px solid $white;
+  display: flex;
+  font-size: 5em;
+  height: 15vh;
+  justify-content: center;
+  width: 70%;
+}
