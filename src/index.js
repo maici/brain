@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import AppRouter from './router'
 import { AppContainer } from 'react-hot-loader'
+
 ReactDOM.render(
   <AppContainer>
     <AppRouter/>

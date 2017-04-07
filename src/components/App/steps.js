@@ -1,14 +1,14 @@
 import React from 'react'
-import { NumberPad } from './Games'
+import { NumberPad, DigitalPad } from './Games'
 export default [
   {
     message: {
-      strings: ["Bonjour...^1000", "Voyons comment vous vous débrouillez."],
+      strings: ["VERSION 2 !"],
       typeSpeed: 100,
       backSpeed: 0,
     },
-    game: NumberPad,
-    code: [1,2,3,4]
+    game: DigitalPad,
+    code: [7,4,1,5,3,6,9]
   },
   {
     message: {
