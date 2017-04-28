@@ -1,6 +1,15 @@
 import React from 'react'
-import { NumberPad, DigitalPad } from './Games'
+import { NumberPad, DigitalPad, ColorPad } from './Games'
 export default [
+  {
+    message: {
+      strings: ["3"],
+      typeSpeed: 100,
+      backSpeed: 0,
+    },
+    game: ColorPad,
+    code: [1,2,3,4]
+  },
   {
     message: {
       strings: ["VERSION 2 !"],
@@ -9,15 +18,6 @@ export default [
     },
     game: DigitalPad,
     code: [7,4,1,5,3,6,9]
-  },
-  {
-    message: {
-      strings: ["Bien bien !^1000", "et avec celui ci ?"],
-      typeSpeed: 100,
-      backSpeed: 0,
-    },
-    game: NumberPad,
-    code: [2,3,4,5]
   },
   {
     message: {
