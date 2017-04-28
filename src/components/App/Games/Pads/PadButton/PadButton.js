@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style.scss'
 import classnames from 'classnames/bind'
-import { colorMap } from '../ColorPad'
+import { colors } from '../../../config'
 const cx = classnames.bind(styles)
 
 const inputs = [1,2,3,4,5,6,7,8,9]
@@ -11,7 +11,7 @@ const PadButton = ({ value, onSelect, className, onMouseDown, displayMode }) => 
   const classes = cx(styles.container, className)
   switch(displayMode){
     case 'color': {
-      const style = { backgroundColor: colorMap[value - 1] }
+      const style = { backgroundColor: colors[value - 1] }
       return (
         <div className={classes} style={style} onDragStart={e => e.preventDefault()} onMouseDown={onMouseDown} onClick={select} />
       )

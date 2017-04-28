@@ -1,4 +1,5 @@
-export default [
+export const timer = 20
+export const colors = [
   '#ff0066',
   '#ff0000',
   '#0000ff',

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './style.scss'
 import classnames from 'classnames/bind'
 import StepButton from './StepButton'
+import Timer from './Timer'
 import Step from './Step'
 import steps from './steps'
 const cx = classnames.bind(styles)
@@ -28,6 +29,7 @@ class App extends React.Component {
 
   nextStep = () => {
     const { currentStep, steps } = this.state
+    fetch(steps[currentStep].onComplete)
     const nextStep = currentStep + 1 > steps.length - 1 ? steps.length - 1 : currentStep + 1
     this.setState({currentStep: nextStep})
   }
@@ -49,7 +51,7 @@ class App extends React.Component {
           }
         </div>
         <div className= {styles.footer}>
-          14:50
+          <Timer />
         </div>
       </div>
     )

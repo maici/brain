@@ -1,5 +1,6 @@
 import 'normalize.css/normalize.css'
-
+import './fonts/LCD.ttf'
+import './fonts/IA.ttf'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AppRouter from './router'
