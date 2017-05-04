@@ -1,38 +1,29 @@
 import React from 'react'
 import styles from './style.scss'
 import classnames from 'classnames/bind'
-import { timer } from '../config'
 const cx = classnames.bind(styles)
 
 export class Timer extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      minutes: timer,
+      minutes: 0,
       seconds: 0,
     }
   }
 
-
-  tic = () => {
-    const { minutes, seconds } = this.state
-    if (!seconds) {
-      this.setState({ minutes: minutes - 1, seconds: 59 })
-    } else {
-      this.setState({ seconds: seconds - 1 })
-    }
-    if ( timer || seconds ) setTimeout(this.tic, 1000)
-  }
-
-  start = () => {
-    setTimeout(this.tic, 1000)
-  }
-
   componentDidMount() {
-    this.start()
+    const { time } = this.props;
+    this.setState({minutes: time.minutes, seconds: time.seconds})
   }
 
+  componentDidUpdate(prevProps) {
+    const { time } = this.props
+    if(prevProps.time !== time) {
+      this.setState(time)
+    }
+  }
 
   render = () => {
     const { minutes, seconds } = this.state

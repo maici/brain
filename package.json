@@ -33,7 +33,7 @@
     "fs-extra": "0.30.0",
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.22.0",
-    "json-loader": "0.5.4",
+    "json-loader": "^0.5.4",
     "node-sass": "^3.8.0",
     "opn": "4.0.2",
     "postcss-loader": "0.9.1",
@@ -55,7 +55,8 @@
     "normalize.css": "^4.2.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-router": "^2.6.1"
+    "react-router": "^2.6.1",
+    "socket.io-client": "^1.7.3"
   },
   "scripts": {
     "start": "node ./scripts/start.js",

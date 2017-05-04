@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var paths = require('./paths');
+var steps = require('../src/components/App/steps.json')
 
 module.exports = {
   devtool: 'eval',
@@ -65,6 +66,9 @@ module.exports = {
           'css?modules&localIdentName=[path]_[local]__[hash:base64:5]',
           'sass',
         ],
+        options: {
+            data: "$steps : " + steps.length + ";"
+        }
       },
       {
         test: /\.json$/,
