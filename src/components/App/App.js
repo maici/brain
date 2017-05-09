@@ -21,11 +21,11 @@ class App extends React.Component {
     }
 
     socket.on('connect', () => {
-        if(this.state.disconnected) {
-            this.setState({disconnected: false})
-        }
         if(!this.state.stepTimeout) {
             socket.emit('client:ready', this.state)
+        }
+        if(this.state.disconnected) {
+            this.setState({disconnected: !this.state.disconnected})
         }
     })
     socket.on('timer:tick', time => this.setState({time: time}))
