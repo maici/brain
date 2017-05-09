@@ -24,7 +24,7 @@ class App extends React.Component {
         if(this.state.disconnected) {
             this.setState({disconnected: false})
         }
-        if(!this.state.timeout) {
+        if(!this.state.stepTimeout) {
             socket.emit('client:ready', this.state)
         }
     })
