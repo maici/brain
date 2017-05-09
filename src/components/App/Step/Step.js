@@ -14,7 +14,7 @@ class Step extends React.Component {
   }
 
   componentDidMount() {
-    const { startMessage } = this.props.step
+    const { startMessage } = this.props.step.messages
     this.type(startMessage, () => {
         setTimeout(() => {
             this.setState({ typing: false })
@@ -25,7 +25,7 @@ class Step extends React.Component {
 
   componentDidUpdate(prev) {
     console.log("BLAAAAAAAAAA",prev)
-    const { startMessage, timeoutMessage } = this.props.step
+    const { startMessage, timeoutMessage } = this.props.step.messages
     if(prev.index !== this.props.index) {
         this.setState({ typing: true })
         this.type(startMessage, () => {
@@ -47,7 +47,7 @@ class Step extends React.Component {
   }
 
   onResolve = () => {
-    const { endMessage } = this.props.step
+    const { endMessage } = this.props.step.messages
     this.props.onResolve()
     this.type(endMessage, null)
   }

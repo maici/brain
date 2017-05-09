@@ -1,33 +1,16 @@
 $white: white;
-$default: #777;
-$darker: #555;
-$darkeeeer: #222;
 $last: #000;
 $red: darken(#990039, 10%);
 
 .container {
   align-items: center;
   transition: .2s;
-  background-image: -webkit-radial-gradient(center, circle, $white, $default);
   font-family: "LCD";
   display: flex;
   flex-direction: column;
   font-family: 'Courier New';
   height: 100vh;
   width: 100vw;
-
-  &.step0 {
-    background-image: -webkit-radial-gradient(center, circle, $white, $default);
-  }
-  &.step1 {
-    background-image: -webkit-radial-gradient(center, circle, $white, $darker);
-  }
-  &.step2 {
-    background-image: -webkit-radial-gradient(center, circle, $white, $darkeeeer);
-  }
-  &.step3 {
-    background-image: -webkit-radial-gradient(center, circle, $white, $last);
-  }
 }
 
 

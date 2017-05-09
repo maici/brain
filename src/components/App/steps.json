@@ -1,59 +1,65 @@
 [
   {
-    "startMessage": {
-      "strings": ["Bienvenue sur la V3 !", "Etape 1"],
-      "typeSpeed": 100,
-      "backSpeed": 0
-    },
-    "endMessage": {
-      "strings": ["Excellent"],
-      "typeSpeed": 100,
-      "backSpeed": 0
-    },
-    "timeoutMessage": {
-      "strings": ["Time over :("],
-      "typeSpeed": 100,
-      "backSpeed": 0
+    "messages": {
+      "startMessage": {
+        "strings": ["Bienvenue sur la V3 !", "Etape 1"],
+        "typeSpeed": 100,
+        "backSpeed": 0
+      },
+      "endMessage": {
+        "strings": ["Excellent"],
+        "typeSpeed": 100,
+        "backSpeed": 0
+      },
+      "timeoutMessage": {
+        "strings": ["Time over :("],
+        "typeSpeed": 100,
+        "backSpeed": 0
+      }
     },
     "time": { "minutes": 20, "seconds": 0 },
     "game": "ColorPad",
     "code": [1,2,3,4]
   },
   {
-    "startMessage": {
-      "typeSpeed": 100,
-      "strings": ["Etape 2"],
-      "backSpeed": 0
-    },
-    "endMessage": {
-      "strings": ["Excellent"],
-      "typeSpeed": 100,
-      "backSpeed": 0
-    },
-    "timeoutMessage": {
+    "messages": {
+      "startMessage": {
+        "typeSpeed": 100,
+        "strings": ["Etape 2"],
+        "backSpeed": 0
+      },
+      "endMessage": {
+        "strings": ["Excellent"],
+        "typeSpeed": 100,
+        "backSpeed": 0
+      },
+      "timeoutMessage": {
         "strings": ["Time over :("],
         "typeSpeed": 100,
         "backSpeed": 0
+      }
     },
     "time": { "minutes": 20, "seconds": 0 },
     "game": "DigitalPad",
     "code": [7,4,1,5,3,6,9]
   },
   {
-    "startMessage": {
-      "strings": ["Etape 3"],
-      "typeSpeed": 100,
-      "backSpeed": 0
-    },
-    "endMessage": {
+    "messages": {
+      "startMessage": {
+        "strings": ["Etape 3"],
+        "typeSpeed": 100,
+        "backSpeed": 0
+      },
+      "endMessage": {
         "strings": ["Fin"],
         "typeSpeed": 100,
         "backSpeed": 0
-    },
-    "timeoutMessage": {
+      },
+      "timeoutMessage": {
         "strings": ["Time over :("],
         "typeSpeed": 100,
         "backSpeed": 0
+      }
     },
     "time": { "minutes": 20, "seconds": 0 },
     "game": "NumberPad",

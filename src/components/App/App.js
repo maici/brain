@@ -2,12 +2,13 @@ import React from 'react'
 import io from 'socket.io-client'
 import styles from './style.scss'
 import classnames from 'classnames/bind'
+import { server } from './config'
 import StepButton from './StepButton'
 import Timer from './Timer'
 import Step from './Step'
 import steps from './steps.json'
 const cx = classnames.bind(styles)
-const socket = io("http://localhost:3000/")
+const socket = io(server)
 
 class App extends React.Component {
 
@@ -40,12 +41,15 @@ class App extends React.Component {
 
   render() {
     const { currentStepId, currentStep, time, stepTimeout } = this.state
-    const background = cx(styles.container, styles[`step${currentStepId}`])
+    const background = {
+        background: `-webkit-radial-gradient(center, circle, white 0%, hsl(0,0%,${50-currentStepId*(50/steps.length)}%) 100%`
+    }
+
     return (
-      <div className={background}>
+      <div style={background} className={styles.container}>
         <div className={styles.header}>
           {
-            steps.map((step, index) => index + 1 < steps.length && <StepButton key={index} active={currentStepId > index}/>)
+            steps.map((step, index) => index < steps.length && <StepButton key={index} active={currentStepId >= index}/>)
           }
         </div>
         <div className={styles.content}>

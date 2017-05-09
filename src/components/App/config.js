@@ -1,4 +1,4 @@
-export const timer = 20
+export const server = 'http://localhost:3000'
 export const colors = [
   '#ff0066',
   '#ff0000',

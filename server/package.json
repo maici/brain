@@ -19,6 +19,6 @@
     "prompt": "^1.0.0"
   },
   "scripts": {
-    "start-dev": "webpack --watch & nodemon './www/server.js'"
+    "serve": "webpack --watch & nodemon './www/server.js'"
   }
 }
