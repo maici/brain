@@ -63,23 +63,30 @@ prompt.start()
 menu()
 
 socket.on('connection', (client) => {
-    clients[client.id] = {};
-    client.join(client.id);
+    client.on("client:ready", (status) => {
+        clients[client.id] = status;
+        client.join(client.id);
 
-    client.on('step:ready', (time) => {
-        clients[client.id] = {...clients[client.id], ...time}
-        socket.to(client.id).emit("tick", time);
-        startTimer(client)
+        if(status.disconnected) {
+            clients[client.id] = {...status, ...status.time}
+            startTimer(client)
+        }
+
+        client.on("step:ready", (time) => {
+            clients[client.id] = {...clients[client.id], ...time}
+            socket.to(client.id).emit("tick", time)
+            startTimer(client)
+        })
+
+        client.on("step:cleared", (step) => {
+            console.log(`client : ${client.id} step ${step} cleared`)
+            const {timer} = clients[client.id]
+            clearInterval(timer)
+            socket.to(client.id).emit("timer:tick", {...clients[client.id], currentStep: step, minutes: 88, seconds: 88})
+        })
     })
 
-    client.on("step:cleared", (step) => {
-        console.log(`client : ${client.id} step ${step} cleared`)
-        const {timer} = clients[client.id]
-        clearInterval(timer)
-        socket.to(client.id).emit("timer:tick", {...clients[client.id], currentStep: step, minutes: 88, seconds: 88})
-    })
-
-    client.on('disconnect', () => {
+    client.on("disconnect", () => {
         delete clients[client.id]
     })
 })

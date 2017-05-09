@@ -1,13 +1,11 @@
 import React from 'react'
 import io from 'socket.io-client'
 import styles from './style.scss'
-import classnames from 'classnames/bind'
 import { server } from './config'
 import StepButton from './StepButton'
 import Timer from './Timer'
 import Step from './Step'
 import steps from './steps.json'
-const cx = classnames.bind(styles)
 const socket = io(server)
 
 class App extends React.Component {
@@ -18,11 +16,22 @@ class App extends React.Component {
       currentStepId: 0,
       currentStep: {},
       stepTimeout: false,
+      disconnected: false,
       time: { minutes: 0, seconds: 0 }
     }
+
+    socket.on('connect', () => {
+        if(this.state.disconnected) {
+            this.setState({disconnected: false})
+        }
+        if(!this.state.timeout) {
+            socket.emit('client:ready', this.state)
+        }
+    })
     socket.on('timer:tick', time => this.setState({time: time}))
     socket.on('timer:timeout', () => this.setState({stepTimeout: true}))
     socket.on('step:change', (step) => this.setState({currentStepId: step, currentStep: steps[step]}))
+    socket.on('disconnect', () => this.setState({disconnected: true}))
   }
 
   componentWillMount() {
