@@ -35,7 +35,8 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-      this.setState(this.setState({currentStep: steps[this.state.currentStepId]}))
+      const { currentStepId } = this.state
+      this.setState(this.setState({currentStep: steps[currentStepId], time: steps[currentStepId].time}))
   }
 
   stepCleared = () => {

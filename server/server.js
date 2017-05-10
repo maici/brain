@@ -74,7 +74,6 @@ socket.on('connection', (client) => {
 
         client.on("step:ready", (time) => {
             clients[client.id] = {...clients[client.id], ...time}
-            socket.to(client.id).emit("tick", time)
             startTimer(client)
         })
 
